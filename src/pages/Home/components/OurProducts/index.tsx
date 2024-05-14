@@ -1,6 +1,6 @@
-import { coffees } from "../../data/coffees";
+import { coffees } from "../../../../data/coffees";
 import { ProductCard } from "../ProductCard";
-import { TitleText } from "../typography";
+import { TitleText } from "../../../../components/typography";
 import { OurProductsContainer, ProductList } from "./styles";
 
 export function OurProducts() {

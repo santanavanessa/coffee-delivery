@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { RegularText, TitleText } from "../typography";
+import { RegularText, TitleText } from "../../../../components/typography";
 
 export const ProductCardContainer = styled.div`
     width: 100%;

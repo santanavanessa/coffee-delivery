@@ -1,7 +1,7 @@
 import { BenefitsContainer, HeroContainer, HeroContent, HeroTitle } from "./styles";
 import heroImg from "./../../../../assets/hero-img.svg"
 import { RegularText } from "../../../../components/typography";
-import { InfoWithIcon } from "../InfoWidthIcon";
+import { InfoWithIcon } from "../../../../components/InfoWidthIcon";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { useTheme } from "styled-components";
 

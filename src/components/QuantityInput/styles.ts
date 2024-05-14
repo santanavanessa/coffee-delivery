@@ -8,9 +8,8 @@ export const QuantityInputContainer = styled.div<QuantityInputContainerProps>`
     flex: 1;
     background: ${({ theme }) => theme.colors["base-button"]};
     display: flex;
-    padding: 0.25rem 0.5rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 4px;
     border-radius: 6px;
 
@@ -20,10 +19,9 @@ export const QuantityInputContainer = styled.div<QuantityInputContainerProps>`
         background: none;
         border: none;
         color: ${({ theme }) => theme.colors["base-title"]};
+    
         
-        font-weight: 700;
-        font-size: ${({ theme }) => theme.textSizes["text-regular-s"]};
-        
+    }
         ${({ size }) => size === "medium" && css`
             padding: 0.5rem;
         `}
@@ -31,7 +29,7 @@ export const QuantityInputContainer = styled.div<QuantityInputContainerProps>`
         ${({ size }) => size === "small" && css`
             padding: 0.3rem 0.5rem;
         `}
-    }
+   
 `;
 
 export const IconWrapper = styled.button.attrs({

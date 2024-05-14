@@ -1,7 +1,7 @@
 import { RegularText, TitleText } from "../../components/typography";
 import { ConfirmedOrderContainer, OrderDetailsContainer } from "./styles";
 import confirmedOrderIllustration from "../../assets/confirmed-order.svg"
-import { InfoWithIcon } from "../Home/components/InfoWidthIcon";
+import { InfoWithIcon } from "../../components/InfoWidthIcon";
 import { Clock, CurrencyDollar, MapPin } from "phosphor-react";
 import { useTheme } from "styled-components";
 
