@@ -12,9 +12,11 @@ interface CartContextType {
     cartItemsTotal: number;
     addCoffeeToCart: (coffee: CartItem) => void;
     changeCartItemQuantity: (
-        cartItemId: number, type: 'increase' | 'decrease'
+        cartItemId: number, 
+        type: 'increase' | 'decrease',
     ) => void;
     removeCartItem: (cartItemId: number) => void;
+    cleanCart: () => void;
 }
 
 interface CartContextProviderProps {
@@ -29,6 +31,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     const [cartItems, setCartItems] = useState<CartItem[]>(() =>{
         const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY);
+        
         if(storedCartItems) {
             return JSON.parse(storedCartItems);
         }
@@ -51,15 +54,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             } else {
                 draft[coffeeAlreadyExistsInCart].quantity += coffee.quantity;
             }
-        });
+        })
 
         setCartItems(newCart);
-
     }
 
-    useEffect(() => {
-        localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
-    }, [cartItems])
 
     function changeCartItemQuantity(
         cartItemId: number,
@@ -69,12 +68,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
                 (cartItem) =>cartItem.id === cartItemId
             );
 
-            if(coffeeExistsInCart >= 0) {
+            if (coffeeExistsInCart >= 0) {
                 const item = draft[coffeeExistsInCart];
                 draft[coffeeExistsInCart].quantity =
                 type === 'increase'? item.quantity + 1 : item.quantity - 1;
             }
-        });
+        })
         setCartItems(newCart);
     }
 
@@ -91,16 +90,27 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             setCartItems(newCart);
     }
 
+    function cleanCart() {
+        setCartItems([])
+    }
+
+    useEffect(() => {
+        localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
+    }, [cartItems])
+
     return (
-        <CartContext.Provider 
-        value={{ 
-            cartItems, 
-            cartQuantity, 
+        <CartContext.Provider
+          value={{
+            cartItems,
+            addCoffeeToCart,
+            cartQuantity,
             cartItemsTotal,
-            addCoffeeToCart, 
             changeCartItemQuantity,
-            removeCartItem }}>
-            { children }
+            removeCartItem,
+            cleanCart,
+          }}
+        >
+          {children}
         </CartContext.Provider>
-    )
-}
+      )
+    }
