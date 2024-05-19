@@ -31,11 +31,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     const [cartItems, setCartItems] = useState<CartItem[]>(() =>{
         const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY);
-<<<<<<< HEAD
-        
-=======
->>>>>>> 514b996100abd115d167896b0556f443836aeed2
-        if(storedCartItems) {
+
+if(storedCartItems) {
             return JSON.parse(storedCartItems);
         }
         return[];
@@ -62,12 +59,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         setCartItems(newCart);
     }
 
-<<<<<<< HEAD
-=======
     useEffect(() => {
         localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
     }, [cartItems])
->>>>>>> 514b996100abd115d167896b0556f443836aeed2
 
     function changeCartItemQuantity(
         cartItemId: number,
