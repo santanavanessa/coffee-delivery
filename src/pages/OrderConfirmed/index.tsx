@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { RegularText, TitleText } from "../../components/typography";
 import { OrderConfirmedContainer, OrderDetailsContainer } from "./styles";
 import confirmedOrderIllustration from "../../assets/confirmed-order.svg";
@@ -7,7 +8,6 @@ import { MapPin, Clock, CurrencyDollar } from "phosphor-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { OrderData } from "../CompleteOrder";
 import { paymentMethods } from "../CompleteOrder/components/CompleteOrderForm/PaymentMethodOptions";
-import { useEffect } from "react";
 
 interface LocationType {
   state: OrderData;
@@ -15,18 +15,17 @@ interface LocationType {
 
 export function OrderConfirmedPage() {
   const { colors } = useTheme();
-
-  const { state } = useLocation() as LocationType;
-
+  const location = useLocation();
+  const state = location.state as LocationType['state'];
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!state) {
       navigate("/");
     }
-  }, []);
+  }, [state, navigate]);
 
- if (!state) return <></>;
+  if (!state) return null;
 
   return (
     <OrderConfirmedContainer className="container">
@@ -75,7 +74,7 @@ export function OrderConfirmedPage() {
             }
           />
         </OrderDetailsContainer>
-        <img src={confirmedOrderIllustration} />
+        <img src={confirmedOrderIllustration} alt="Order confirmed illustration" />
       </section>
     </OrderConfirmedContainer>
   );

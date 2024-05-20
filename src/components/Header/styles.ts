@@ -22,6 +22,10 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
    }
 
+   @media (max-width: 1024px) {
+        padding: 0 2rem;
+    }
+
 `;
 
 export const HeaderButtonsContainer = styled.div`
@@ -45,6 +49,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
   border: none;
   padding: 0 0.5rem;
   position: relative;
+  font-size: ${({ theme }) => theme.textSizes['text-regular-s']};
   cursor: inherit;
 
   span {
@@ -55,6 +60,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
     top: calc(-1.25rem / 2);
     right: calc(-1.25rem / 2);
     color: ${({ theme }) => theme.colors["base-white"]};
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,7 +68,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
     font-weight: 700;
   }
 
-  font-size: ${({ theme }) => theme.textSizes["text-regular-s"]};
+  
 
   ${({ variant }) => css`
     background: ${({ theme }) => theme.colors[`brand-${variant}-light`]};

@@ -36,3 +36,4 @@ export const OrderDetailsContainer = styled.div`
     background: linear-gradient(102.89deg, #dbac2c 2.61%, #8047f8 98.76%);
   }
 `;
+

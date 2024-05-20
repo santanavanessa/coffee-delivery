@@ -38,7 +38,9 @@ if(storedCartItems) {
         return[];
     });
 
-    const cartQuantity = cartItems.length;
+    const cartQuantity = cartItems.reduce((total, cartItem) => {
+        return total + cartItem.quantity;
+      }, 0);
 
     const cartItemsTotal = cartItems.reduce((total, cartItem) => {
         return total + cartItem.price * cartItem.quantity;
