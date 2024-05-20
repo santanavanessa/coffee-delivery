@@ -7,8 +7,8 @@ export const OurProductsContainer = styled.section`
     @media (max-width: 1024px) {
         padding: 0 2rem;
     }
-    @media (max-width: 700px) {
-        margin-top: 24rem;
+    @media (max-width: 768px) {
+        margin-top: 32rem;
     
   }
 `;

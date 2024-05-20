@@ -44,9 +44,9 @@ export const HeroContent = styled.div`
       flex: 1;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
           gap: 1rem;
-          margin-top: 20rem;
+          margin-top: 30rem;
           flex-direction: column-reverse;
           > img {
           width: 100%;
@@ -67,7 +67,13 @@ grid-template-columns: 1fr 1fr;
 row-gap: 1.25rem;
 margin-top: 4.125rem;
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    margin-top: 4rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
     grid-template-columns: 1fr;
     margin-top: 2rem;
     font-size: 1.1rem;
